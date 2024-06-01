@@ -1,0 +1,93 @@
+<form [formGroup]="myForm">
+    <div class="mb-3 mt-4">
+        <label>Name:</label>
+        <input type="text" placeholder="Enter Name" formControlName="name" id="name" />
+        <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+            <small style="color:red" *ngIf="myForm.get('name')?.errors?.['required']">Name is Required*</small>
+            <small style="color:red" *ngIf="myForm.get('name')?.errors?.['minLength']">Name must contain atleast 3
+                characters*</small>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>email:</label>
+        <input type="email" placeholder="Enter Email" formControlName="email" id="email" />
+        <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+            <small style="color:red" *ngIf="myForm.get('email')?.errors?.['required']">Email is Required</small>
+            <small style="color:red" *ngIf="myForm.get('email')?.errors?.['email']">Email must be a email format</small>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>Age:</label>
+        <input type="number" placeholder="Enter Age" formControlName="age" id="age" />
+        <div *ngIf="myForm.get('age')?.invalid && myForm.get('age')?.touched">
+            <small style="color:red" *ngIf="myForm.get('age')?.errors?.['required']">Age is Required</small>
+            <small style="color:red" *ngIf="myForm.get('age')?.errors?.['min']">Age must be minimum 18</small>
+            <small style="color:red" *ngIf="myForm.get('age')?.errors?.['max']">
+                Age must be within 99
+            </small>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>Phone Number:</label>
+        <input type="number" placeholder="Enter Phone Number" formControlName="phno" id="phno" />
+        <div *ngIf="myForm.get('phno')?.invalid && myForm.get('phno')?.touched">
+            <small style="color:red" *ngIf="myForm.get('phno')?.errors?.['required']">Phone Number is Required</small>
+            <small style="color:red" *ngIf="myForm.get('age')?.errors?.['min']">phno must be minimum 10</small>
+        </div>
+    </div>
+    <!-- radio -->
+    <div class="mb-3">
+        <label>Select Gender:</label>
+        <input type="radio" formControlName="gender" value="female" /> Female
+        <input type="radio" formControlName="gender" value="male" /> Male
+        <div *ngIf="myForm.get('gender')?.invalid && myForm.get('gender')?.touched">
+            <small style="color:red" *ngIf="myForm.get('gender')?.errors?.['required']">Gender is Required</small>
+        </div>
+    </div>
+    <!-- Checkbox -->
+    <div class="mb-3">
+        <input type="checkbox" formControlName="agree" id="agree" /> I Agree
+        <div *ngIf="myForm.get('gender')?.invalid && myForm.get('gender')?.touched">
+            <small style="color:red" *ngIf="myForm.get('gender')?.errors?.['required']">This field is Required</small>
+        </div>
+    </div>
+    <button type="button" (click)="submitForm()" class="btn btn-primary" [disabled]="myForm.invalid">{{isEditMode ? 'update' : 'Register'}}</button>
+</form>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of registerDataArray; let i = index">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.phno}}</td>
+            <td>{{item.gender}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteInfo(i)">Delete</button>
+                <button class="btn btn-primary me-3" (click)="editItem(i)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
