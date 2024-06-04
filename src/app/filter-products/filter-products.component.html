@@ -1,0 +1,9 @@
+
+<h2 class="text-center">{{prodTitlepass}}</h2>
+<div class="d-flex align-items-center justify-content-center p-3 mb-3">
+    <div class="me-3"><input type="radio" value="All"  [(ngModel)]="selectedRadiobtn" (click)="clickRadioBtn('All')"/> All</div>
+    <div class="me-3"><input type="radio" value="fragrances" (click)="clickRadioBtn('fragrances')" [(ngModel)]="selectedRadiobtn"/> fragrances</div>
+    <div class="me-3"><input type="radio" value="beauty" (click)="clickRadioBtn('beauty')" [(ngModel)]="selectedRadiobtn"/> beauty</div>
+    <div class="me-3"><input type="radio" value="furniture" (click)="clickRadioBtn('furniture')" [(ngModel)]="selectedRadiobtn"/> furniture</div>
+    <div class="me-3"><input type="radio" value="groceries" (click)="clickRadioBtn('groceries')" [(ngModel)]="selectedRadiobtn"/> groceries</div>
+</div>

@@ -1,0 +1,60 @@
+<div class="bg-info p-3 mb-3">
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <h1>E-commerce Website</h1>
+    </div>
+    <!-- search -->
+    <div>
+      <input type="text" placeholder="Search..." [(ngModel)]="selectedValue" (change)="searchProduct($event)" />
+    </div>
+    <!-- add to cart -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa fa-cart-plus" aria-hidden="true"></i>
+      <span>{{cartItemsStored?.length}}</span>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Cart Items</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- ... -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cartItemsStored; let i = index">
+                  <td>
+                    <div>
+                      <h5 class="card-title">{{item.title}}</h5>
+                      <p>{{item.category}}</p>
+                    </div>
+                  </td>
+                  <td>
+                    {{item.price | currency:'INR':'symbol-narrow'}}
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="deletProduct(item.id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<app-product-listing [inputValue]="selectedValue"></app-product-listing>

@@ -1,0 +1,28 @@
+<div class="p-3 bg-light text-center border">
+    <h1>Add Student</h1>
+    <div *ngIf="isSuscessMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> Student Data is successfully Added.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <form [formGroup]="myForm">
+        <div>
+            <label>Name:</label>
+            <input type="text" placeholder="Enter Name" formControlName="name" id="name" />
+            <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+                <small *ngIf="myForm.get('name')?.errors?.['required']">Name is REquired</small>
+            </div>
+        </div>
+        <div class="mt-3">
+            <label>Email:</label>
+            <input type="email" placeholder="Enter Email" id="email" formControlName="email" />
+            <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+                <small *ngIf="myForm.get('email')?.errors?.['required']">email is REquired</small>
+            </div>
+        </div>
+        <div class="mt-3">
+            <button type="button" (click)="addStudent()" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

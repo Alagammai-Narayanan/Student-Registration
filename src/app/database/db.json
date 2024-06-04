@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "meyyammai n",
+      "email": "alagammain12@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "raj",
+      "email": "raj@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "pooja",
+      "email": "pooja@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "rajkumar",
+      "email": "rajkumar@gmail.com"
+    },
+    {
+      "id": "2a84",
+      "name": "David",
+      "email": "david@email.com"
+    },
+    {
+      "id": "8c7f",
+      "name": "meyyammai",
+      "email": "alagammai.narayanan@aspiresys.com"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of studentList; let i = index">
+            <td>{{item.id }}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>
+                <button class="me-3 btn btn-danger" (click)="deleteItem(i)">Delete</button>
+                <button class="btn btn-warning" (click)="goToEdit(item.id)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
